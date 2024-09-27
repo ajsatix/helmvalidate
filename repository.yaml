@@ -1,0 +1,10 @@
+# kubearmor-repository.yaml
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: kubearmor
+  namespace: flux-system
+spec:
+  interval: 60m
+  url: https://kubearmor.github.io/kubearmor/
