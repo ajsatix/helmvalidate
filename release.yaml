@@ -1,0 +1,23 @@
+# release.yaml
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: kubearmor
+  namespace: kubearmor
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: kubearmor
+      sourceRef:
+        kind: HelmRepository
+        name: kubearmor
+        namespace: flux-system
+      version: 1.4.1 # Use the appropriate version
+  install:
+    crds: CreateReplace
+  upgrade:
+    crds: CreateReplace      
+  values:
+    # Add any custom values here
